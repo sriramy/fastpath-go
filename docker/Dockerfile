@@ -6,6 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV GOROOT /opt/go
 ENV PATH ${GOROOT}/bin:${GOPATH}/bin:${PATH}
 ENV NFF_GO /nff-go
+ENV NFF_VERSION v0.9.2
 
 RUN apt-get -q update && apt-get -q -y install \
     make \
@@ -28,7 +29,7 @@ RUN make -C libbpf/src all install
 RUN echo "/usr/lib64" > /etc/ld.so.conf.d/usrlib64.conf
 RUN ldconfig
 
-RUN git clone --recurse-submodules http://github.com/intel-go/nff-go ${NFF_GO}
+RUN git clone --recurse-submodules --branch ${NFF_VERSION} http://github.com/intel-go/nff-go ${NFF_GO}
 RUN cd ${NFF_GO} && \
     go mod download && \
     make -j8
