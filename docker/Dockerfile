@@ -29,5 +29,8 @@ RUN echo "/usr/lib64" > /etc/ld.so.conf.d/usrlib64.conf
 RUN ldconfig
 
 RUN git clone --recurse-submodules http://github.com/intel-go/nff-go ${NFF_GO}
+RUN cd ${NFF_GO} && \
+    go mod download && \
+    make -j8
 
 WORKDIR ${NFF_GO}
