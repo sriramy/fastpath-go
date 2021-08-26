@@ -8,7 +8,6 @@ steps:
   - '.'
   - '-f'
   - 'docker/nff-go-builder/Dockerfile'
-  timeout: '1800s'
 
 - name: 'gcr.io/cloud-builders/docker'
   id: Push image
@@ -16,4 +15,4 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/$REPO_NAME/nff-go-builder:latest'
 
-timeout: '2400s'
+timeout: '3000s'
