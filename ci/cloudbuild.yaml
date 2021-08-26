@@ -8,6 +8,7 @@ steps:
   - '.'
   - '-f'
   - 'docker/Dockerfile'
+  timeout: '3000s'
 
 - name: 'gcr.io/cloud-builders/docker'
   id: Push image
