@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build image
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/$REPO_NAME/fastpath-go:$SHORT_SHA'
+  - '.'
+  - '-f'
+  - 'docker/Dockerfile'
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push image
+  args:
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/$REPO_NAME/fastpath-go:$SHORT_SHA'
