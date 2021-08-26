@@ -7,7 +7,7 @@ steps:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME/fastpath-go:$SHORT_SHA'
   - '.'
   - '-f'
-  - 'docker/Dockerfile'
+  - 'docker/application/Dockerfile'
   timeout: '1800s'
 
 - name: 'gcr.io/cloud-builders/docker'
