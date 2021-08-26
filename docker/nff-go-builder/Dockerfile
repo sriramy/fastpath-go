@@ -21,7 +21,8 @@ RUN apt-get -q update && apt-get -q -y install \
     libhyperscan-dev \
     liblua5.3-dev \
     libmnl-dev \
-    libibverbs-dev
+    libibverbs-dev \
+    linux-headers-`uname -r`
 
 RUN cd /opt && curl -L -s https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz | tar zx
 RUN git clone -b v0.0.4 https://github.com/libbpf/libbpf
